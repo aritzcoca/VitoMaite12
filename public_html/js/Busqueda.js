@@ -298,3 +298,10 @@ function obtenerInformacionUsuario(email, callback) {
         callback(null);
     };
 }
+
+
+document.getElementById("volverAlInicioBtn").addEventListener('click', function () {
+    
+    window.location.href = 'logeado.html';
+}
+);
