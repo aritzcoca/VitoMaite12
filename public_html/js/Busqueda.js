@@ -1,61 +1,28 @@
-//****************************************************************************** 
-//******************************** SALUDAR *************************************
-//****************************************************************************** 
 document.addEventListener('DOMContentLoaded', function () {
-// Obtener la información del usuario de sessionStorage
-    //var emailUsuario = sessionStorage.getItem('email');
+    // Mostrar mensaje de bienvenida
     var nombreUsuario = sessionStorage.getItem('nombre');
     var fotoUsuario = sessionStorage.getItem('foto');
-    // Mostrar el mensaje de bienvenida
     var mensajeBienvenida = document.getElementById("mensajeBienvenida");
-    mensajeBienvenida.textContent = "Bienvenido/a, " + nombreUsuario;
-    // Mostrar la foto del usuario
     var fotoUsuarioElement = document.getElementById("fotoUsuario");
-    fotoUsuarioElement.src = fotoUsuario;
-});
 
-//****************************************************************************** 
-//*************************** CERRAR SESION ************************************
-//****************************************************************************** 
-
-document.getElementById("cerrarSesionBtn").addEventListener('click', function () {
-// Limpiar la información del usuario de sessionStorage
-    sessionStorage.removeItem('email');
-    sessionStorage.removeItem('nombre');
-    sessionStorage.removeItem('foto');
-    // Redirigir a la página de inicio de sesión
-    window.location.href = 'index.html';
-}
-);
-
-//////**************************************************************************** 
-//*******CARGAR VALORES DE EDADES ENTRE 18 y 99 DESPLEGABLE FORM ***************
-//****************************************************************************** 
-document.addEventListener('DOMContentLoaded', function () {
-    var edadSelect = document.getElementById('edad');
- 
-    for (var i = 18; i <= 99; i++) {
-        var option = document.createElement('option');
-        option.value = i;
-        option.textContent = i;
-        edadSelect.appendChild(option);
+    if (mensajeBienvenida && nombreUsuario) {
+        mensajeBienvenida.textContent = "Bienvenido/a, " + nombreUsuario;
     }
-});
 
-////**************************************************************************** 
-//******************************** SALUDAR *************************************
-//****************************************************************************** 
-document.addEventListener('DOMContentLoaded', function () {
-// Obtener la información del usuario de sessionStorage
-    //var emailUsuario = sessionStorage.getItem('email');
-    var nombreUsuario = sessionStorage.getItem('nombre');
-    var fotoUsuario = sessionStorage.getItem('foto');
-    // Mostrar el mensaje de bienvenida
-    var mensajeBienvenida = document.getElementById("mensajeBienvenida");
-    mensajeBienvenida.textContent = "Bienvenido/a, " + nombreUsuario;
-    // Mostrar la foto del usuario
-    var fotoUsuarioElement = document.getElementById("fotoUsuario");
-    fotoUsuarioElement.src = fotoUsuario;
+    if (fotoUsuarioElement && fotoUsuario) {
+        fotoUsuarioElement.src = fotoUsuario;
+    }
+
+    // Cargar el desplegable de edades
+    var edadSelect = document.getElementById('edad');
+    if (edadSelect) {
+        for (var i = 18; i <= 99; i++) {
+            var option = document.createElement('option');
+            option.value = i;
+            option.textContent = i;
+            edadSelect.appendChild(option);
+        }
+    }
 });
 
 //****************************************************************************** 
@@ -173,7 +140,6 @@ function mostrarUsuarios() {
 
 
 function agregarUsuarioALaInterfaz(usuario) {
-    
     var contenedorUsuarios = document.getElementById("contenedorUsuarios");
 
     // Verificar si ya existe la tabla
@@ -197,15 +163,23 @@ function agregarUsuarioALaInterfaz(usuario) {
         var ciudadCabecera = document.createElement("th");
         ciudadCabecera.textContent = "Ciudad";
 
+        var alturaCabecera = document.createElement("th");
+        alturaCabecera.textContent = "Altura";
+
+        var fotoCabecera = document.createElement("th");
+        fotoCabecera.textContent = "Foto";
+
         // Agregar celdas de la cabecera a la fila de la cabecera
         filaCabecera.appendChild(nombreCabecera);
         filaCabecera.appendChild(edadCabecera);
         filaCabecera.appendChild(ciudadCabecera);
+        filaCabecera.appendChild(alturaCabecera);
+        filaCabecera.appendChild(fotoCabecera);
 
         // Agregar la fila de la cabecera a la tabla
         tablaUsuarios.appendChild(filaCabecera);
 
-        // Agregar la tabla al contenedor de artículos
+        // Agregar la tabla al contenedor de usuarios
         contenedorUsuarios.appendChild(tablaUsuarios);
     }
 
@@ -222,12 +196,24 @@ function agregarUsuarioALaInterfaz(usuario) {
 
     var ciudadCelda = document.createElement("td");
     ciudadCelda.textContent = usuario.ciudad;
-   
+
+    var alturaCelda = document.createElement("td");
+    alturaCelda.textContent = usuario.altura;
+
+    // Crear una celda con la imagen
+    var fotoCelda = document.createElement("td");
+    var imgElemento = document.createElement("img");
+    imgElemento.src = usuario.foto; // Asignar la URL de la foto del usuario
+    imgElemento.alt = `Foto de ${usuario.nombre}`;
+    imgElemento.style.width = "50px"; // Ajustar el tamaño de la imagen
+    imgElemento.style.borderRadius = "50%"; // Hacer la imagen circular
+    fotoCelda.appendChild(imgElemento);
+
     // Botón de detalles
     var botonDetalles = document.createElement("button");
     botonDetalles.textContent = "Detalles";
     botonDetalles.addEventListener("click", function () {
-        mostrarDetallesUsuario(); // Llama a la función de detalles
+        mostrarDetallesUsuario(usuario); // Llama a la función de detalles con el usuario
     });
 
     // Columna del botón de imagen de like
@@ -245,24 +231,21 @@ function agregarUsuarioALaInterfaz(usuario) {
     filaUsuario.appendChild(nombreCelda);
     filaUsuario.appendChild(edadCelda);
     filaUsuario.appendChild(ciudadCelda);
-    filaUsuario.appendChild(botonDetalles);
+    filaUsuario.appendChild(alturaCelda);
+    filaUsuario.appendChild(fotoCelda);
+    
     filaUsuario.appendChild(likeCelda);
 
     // Agregar la fila del usuario a la tabla
     tablaUsuarios.appendChild(filaUsuario);
 }
 
-function mostrarDetallesUsuario() {
 
-    //no premium, tiene que redireccionar
-    var nombreUsuario = sessionStorage.getItem('nombre');
-    Swal.fire("Lo siento " + nombreUsuario + ", debes ser premium para poder ver los detalles de ese usuario \n ;)");
-}
 
 
 function darLike(usuario){
 
-    Swal.fire("Has dado like al usuario con id " + usuario + " te falta registrar el like y comprobar match" );
+    Swal.fire("Has dado like"  );
 
 
 //tienes que comprobar que no pueda darle like otra vez si ya tiene un 2 en la tabla

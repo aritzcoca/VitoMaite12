@@ -96,86 +96,75 @@ function mostrarLikes() {
 }
 
 function agregarLikeALaInterfaz(like) {
-
     var contenedorLikes = document.getElementById("contenedorLikes");
+    var tablaLikes = document.querySelector(".tabla-likes");
 
-    var tablaLikes = document.createElement("table");
+    if (!tablaLikes) {
+        // Crear la tabla solo si no existe
+        tablaLikes = document.createElement("table");
+        tablaLikes.className = "tabla-likes";
 
-    tablaLikes.className = "tabla-likes";
+        // Crear la fila de la cabecera
+        var filaCabecera = document.createElement("tr");
 
-    // Crear la fila de la cabecera
-    var filaCabecera = document.createElement("tr");
+        // Crear celdas de la cabecera
+        var fechaCabecera = document.createElement("th");
+        fechaCabecera.textContent = "Fecha Like";
 
-    // Crear celdas de la cabecera
-    var fechaCabecera = document.createElement("th");
-    fechaCabecera.textContent = "Fecha Like";
+        var usuarioCabecera = document.createElement("th");
+        usuarioCabecera.textContent = "Usuario";
 
-    var usuarioCabecera = document.createElement("th");
-    usuarioCabecera.textContent = "Usuario";
+        var fotoCabecera = document.createElement("th");
+        fotoCabecera.textContent = "Foto";
 
-    // Agregar celdas de la cabecera a la fila de la cabecera
-    filaCabecera.appendChild(fechaCabecera);
-    filaCabecera.appendChild(usuarioCabecera);
+        // Agregar celdas de la cabecera a la fila de la cabecera
+        filaCabecera.appendChild(fechaCabecera);
+        filaCabecera.appendChild(usuarioCabecera);
+        filaCabecera.appendChild(fotoCabecera);
 
-    //añades la cabecera
-    tablaLikes.appendChild(filaCabecera);
+        // Añadir la cabecera a la tabla
+        tablaLikes.appendChild(filaCabecera);
+        contenedorLikes.appendChild(tablaLikes);
+    }
 
-    // Crear una fila para cada like
     var filaLike = document.createElement("tr");
-
-    // Crear celdas para mostrar la información del artículo
     var fechaCelda = document.createElement("td");
-
-    fechaStalking = extraerFecha(like.fecha);
-
-    fechaCelda.textContent = fechaStalking;
+    fechaCelda.textContent = extraerFecha(like.fecha);
 
     var usuarioCelda = document.createElement("td");
+    var fotoCelda = document.createElement("td");
+    var fotoUsuario = document.createElement("img");
+    fotoUsuario.style.width = "50px";
+    fotoUsuario.style.borderRadius = "50%";
 
     emailUsuario = like.usuario1;
 
     obtenerInformacionUsuario(emailUsuario, function (usuario) {
         if (usuario) {
-            //console.log("Información del usuario:", usuario);
-            //************ CUIDAO *************
-            nickStalcker = usuario.nombre; //AUN NO TENEMOS EL NICK!!!!
-            //************ CUIDAO *************
-            usuarioCelda.textContent = nickStalcker;
+            // Mostrar el nombre del usuario
+            usuarioCelda.textContent = usuario.nombre;
 
-
+            // Asignar la foto del usuario, si no tiene, usar la foto anónima
+            fotoUsuario.src = usuario.foto ? usuario.foto : fotoanonima;
         } else {
             console.log("Usuario no encontrado o error al buscar.");
+            usuarioCelda.textContent = "Desconocido";
+            fotoUsuario.src = fotoanonima; // Usar foto anónima si no se encuentra el usuario
         }
+
+        fotoCelda.appendChild(fotoUsuario);
     });
 
-    var botonDetalles = document.createElement("button");
-    // Agregar celdas a la fila del artículo
     filaLike.appendChild(fechaCelda);
     filaLike.appendChild(usuarioCelda);
-    filaLike.appendChild(botonDetalles);
-
-    botonDetalles.textContent = "Detalles";
-    botonDetalles.addEventListener("click", function () {
-        // Aquí debes agregar la lógica para borrar el artículo
-        // Puedes llamar a una función de borrado pasando el ID o información necesaria
-        //mostrarDetallesVisita(visita.id);
-        mostrarDetallesLike(); //no te los va a enseñar
-    });
+    filaLike.appendChild(fotoCelda);
 
     // Agregar la fila del artículo a la tabla
     tablaLikes.appendChild(filaLike);
-
-    // Agregar la tabla al contenedor de artículos
-    contenedorLikes.appendChild(tablaLikes);
 }
 
-function mostrarDetallesLike() {
 
-    //no premium, tiene que redireccionar
-    console.log("Mostrar los detalles de la visita...");
-    var nombreUsuario = sessionStorage.getItem('nombre');
-    Swal.fire("Lo siento " + nombreUsuario + ", debes ser premium para poder ver los detalles de ese usuario \n ;)");
-}
+
 
 
 //****************************************************************************** 
