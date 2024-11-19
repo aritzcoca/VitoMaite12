@@ -8,20 +8,20 @@
 async function cargarAficiones() {
     try {
         // Llamada al servidor para obtener las aficiones
-        const response = await fetch('/aficiones');
+        const response = await fetch('/Aficiones');
         if (!response.ok) {
             throw new Error('Error al obtener las aficiones');
         }
-        const aficiones = await response.json();
+        const Aficiones = await response.json();
 
         // Seleccionamos el elemento select del DOM
-        const selectAficiones = document.getElementById('aficiones');
+        const selectAficiones = document.getElementById('Aficiones');
 
         // Limpiamos cualquier opción previa
         selectAficiones.innerHTML = '';
 
         // Iteramos sobre las aficiones y las agregamos como opciones
-        aficiones.forEach(aficion => {
+        Aficiones.forEach(aficion => {
             const option = document.createElement('option');
             option.value = aficion;
             option.textContent = aficion;
