@@ -583,3 +583,19 @@ input[type="password"]:focus {
 #cerrarSesionBtn:hover {
     background-color: #e68900; /* Color naranja más oscuro al pasar el ratón */
 }
+
+/* Ajustar el tamaño del mapa */
+        #map {
+            height: 600px; /* Altura del mapa */
+            width: 800px;  /* Anchura del mapa */
+            border: 1px solid #ccc; /* Bordes para diferenciarlo */
+        }
+
+
+        /* Centramos el mapa en la página (opcional) */
+        .map-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh; /* Altura de la pantalla */
+        }
