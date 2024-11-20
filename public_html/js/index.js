@@ -34,22 +34,22 @@ document.addEventListener('DOMContentLoaded', function () {
 // Función para abrir o crear la base de datos
 function abrirBaseDeDatos() {
     // Abrir o crear una base de datos llamada con versión 1
-    var solicitud = indexedDB.open("vitomaitebd", 1);
+    var abrirBD = indexedDB.open("vitomaitebd", 1);
 
     // Manejar errores
-    solicitud.onerror = function (evento) {
+    abrirBD.onerror = function (evento) {
         // MENSAJE PARA EL PROGRAMADOR
         console.error("Error al abrir la base de datos:", evento.target.error);
     };
 
     // Manejar éxito
-    solicitud.onsuccess = function (evento) {
+    abrirBD.onsuccess = function (evento) {
         var db = evento.target.result;
         console.log("La base de datos 'maitevito' se ha abierto con éxito:", db);
     };
 
     // Configurar el comportamiento cuando se crea o se actualiza la base de datos
-    solicitud.onupgradeneeded = function (evento) {
+    abrirBD.onupgradeneeded = function (evento) {
 
         var db = evento.target.result;
 
@@ -66,7 +66,7 @@ function abrirBaseDeDatos() {
         aficionesStore.add({nombre: "Tocar un instrumento"});
         aficionesStore.add({nombre: "Jugar videojuegos"});
         aficionesStore.add({nombre: "Pintar"});
-        aficionesStore.add({nombre: "Bailar"});
+        aficionesStore.add({nombre: "Bailar bachata"});
         aficionesStore.add({nombre: "Hacer yoga"});
         aficionesStore.add({nombre: "Montar en bicicleta"});
         aficionesStore.add({nombre: "Practicar deportes de equipo"});
@@ -78,87 +78,82 @@ function abrirBaseDeDatos() {
 
         var aficionesUsuarioStore = db.createObjectStore("AficionesUsuarios", {keyPath: "id", autoIncrement: true});
         // Aficiones para Marcos
-        aficionesUsuarioStore.add({email: "marcos@gmail.com", aficion: 1});
-        aficionesUsuarioStore.add({email: "marcos@gmail.com", aficion: 2});
-        aficionesUsuarioStore.add({email: "marcos@gmail.com", aficion: 3});
-
-        // Aficiones para María
-        aficionesUsuarioStore.add({email: "maria@gmail.com", aficion: 4});
-        aficionesUsuarioStore.add({email: "maria@gmail.com", aficion: 5});
-        aficionesUsuarioStore.add({email: "maria@gmail.com", aficion: 6});
-
-        // Aficiones para Javier
-        aficionesUsuarioStore.add({email: "javier@gmail.com", aficion: 7});
-        aficionesUsuarioStore.add({email: "javier@gmail.com", aficion: 8});
-        aficionesUsuarioStore.add({email: "javier@gmail.com", aficion: 9});
-
-        // Aficiones para Carlos
+        aficionesUsuarioStore.add({email: "carlos@gmail.com", aficion: 1});
+        aficionesUsuarioStore.add({email: "carlos@gmail.com", aficion: 2});
+        aficionesUsuarioStore.add({email: "carlos@gmail.com", aficion: 3});
+        aficionesUsuarioStore.add({email: "carlos@gmail.com", aficion: 4});
+        aficionesUsuarioStore.add({email: "carlos@gmail.com", aficion: 5});
+        aficionesUsuarioStore.add({email: "carlos@gmail.com", aficion: 6});
+        aficionesUsuarioStore.add({email: "carlos@gmail.com", aficion: 7});
+        aficionesUsuarioStore.add({email: "carlos@gmail.com", aficion: 8});
+        aficionesUsuarioStore.add({email: "carlos@gmail.com", aficion: 9});
         aficionesUsuarioStore.add({email: "carlos@gmail.com", aficion: 10});
         aficionesUsuarioStore.add({email: "carlos@gmail.com", aficion: 11});
         aficionesUsuarioStore.add({email: "carlos@gmail.com", aficion: 12});
+        aficionesUsuarioStore.add({email: "carlos@gmail.com", aficion: 13});
+        aficionesUsuarioStore.add({email: "carlos@gmail.com", aficion: 14});
+        aficionesUsuarioStore.add({email: "carlos@gmail.com", aficion: 15});
+
+
+        // Aficiones para María
+        aficionesUsuarioStore.add({email: "lucia@gmail.com", aficion: 4});
+        aficionesUsuarioStore.add({email: "lucia@gmail.com", aficion: 5});
+        aficionesUsuarioStore.add({email: "lucia@gmail.com", aficion: 6});
+
+        // Aficiones para Javier
+        aficionesUsuarioStore.add({email: "miguel@gmail.com", aficion: 7});
+        aficionesUsuarioStore.add({email: "miguel@gmail.com", aficion: 8});
+        aficionesUsuarioStore.add({email: "miguel@gmail.com", aficion: 9});
+
+        // Aficiones para Carlos
+        aficionesUsuarioStore.add({email: "elena@gmail.com", aficion: 10});
+        aficionesUsuarioStore.add({email: "elena@gmail.com", aficion: 11});
+        aficionesUsuarioStore.add({email: "elena@gmail.com", aficion: 12});
 
         // Aficiones para Lucía
-        aficionesUsuarioStore.add({email: "lucia@gmail.com", aficion: 13});
-        aficionesUsuarioStore.add({email: "lucia@gmail.com", aficion: 14});
-        aficionesUsuarioStore.add({email: "lucia@gmail.com", aficion: 15});
+        aficionesUsuarioStore.add({email: "antonio@gmail.com", aficion: 13});
+        aficionesUsuarioStore.add({email: "antonio@gmail.com", aficion: 14});
+        aficionesUsuarioStore.add({email: "antonio@gmail.com", aficion: 15});
 
         // Aficiones para Miguel
-        aficionesUsuarioStore.add({email: "miguel@gmail.com", aficion: 1});
-        aficionesUsuarioStore.add({email: "miguel@gmail.com", aficion: 3});
-        aficionesUsuarioStore.add({email: "miguel@gmail.com", aficion: 4});
+        aficionesUsuarioStore.add({email: "sofia@gmail.com", aficion: 1});
+        aficionesUsuarioStore.add({email: "sofia@gmail.com", aficion: 3});
+        aficionesUsuarioStore.add({email: "sofia@gmail.com", aficion: 4});
 
         // Aficiones para Elena
-        aficionesUsuarioStore.add({email: "elena@gmail.com", aficion: 5});
-        aficionesUsuarioStore.add({email: "elena@gmail.com", aficion: 6});
-        aficionesUsuarioStore.add({email: "elena@gmail.com", aficion: 7});
+        aficionesUsuarioStore.add({email: "pablo@gmail.com", aficion: 5});
+        aficionesUsuarioStore.add({email: "pablo@gmail.com", aficion: 6});
+        aficionesUsuarioStore.add({email: "pablo@gmail.com", aficion: 7});
 
         // Aficiones para Antonio
-        aficionesUsuarioStore.add({email: "antonio@gmail.com", aficion: 8});
-        aficionesUsuarioStore.add({email: "antonio@gmail.com", aficion: 9});
-        aficionesUsuarioStore.add({email: "antonio@gmail.com", aficion: 10});
+        aficionesUsuarioStore.add({email: "ana@gmail.com", aficion: 8});
+        aficionesUsuarioStore.add({email: "ana@gmail.com", aficion: 9});
+        aficionesUsuarioStore.add({email: "ana@gmail.com", aficion: 10});
 
         // Aficiones para Sofía
-        aficionesUsuarioStore.add({email: "sofia@gmail.com", aficion: 11});
-        aficionesUsuarioStore.add({email: "sofia@gmail.com", aficion: 12});
-        aficionesUsuarioStore.add({email: "sofia@gmail.com", aficion: 13});
+        aficionesUsuarioStore.add({email: "hector@gmail.com", aficion: 11});
+        aficionesUsuarioStore.add({email: "hector@gmail.com", aficion: 12});
+        aficionesUsuarioStore.add({email: "hector@gmail.com", aficion: 13});
 
         // Aficiones para Pablo
-        aficionesUsuarioStore.add({email: "pablo@gmail.com", aficion: 14});
-        aficionesUsuarioStore.add({email: "pablo@gmail.com", aficion: 15});
-        aficionesUsuarioStore.add({email: "pablo@gmail.com", aficion: 1});
+        aficionesUsuarioStore.add({email: "clara@gmail.com", aficion: 14});
+        aficionesUsuarioStore.add({email: "clara@gmail.com", aficion: 15});
+        aficionesUsuarioStore.add({email: "clara@gmail.com", aficion: 1});
 
         // Aficiones para Ana
-        aficionesUsuarioStore.add({email: "ana@gmail.com", aficion: 2});
-        aficionesUsuarioStore.add({email: "ana@gmail.com", aficion: 3});
-        aficionesUsuarioStore.add({email: "ana@gmail.com", aficion: 4});
+        aficionesUsuarioStore.add({email: "raul@gmail.com", aficion: 2});
+        aficionesUsuarioStore.add({email: "raul@gmail.com", aficion: 3});
+        aficionesUsuarioStore.add({email: "raul@gmail.com", aficion: 4});
 
         // Aficiones para Héctor
-        aficionesUsuarioStore.add({email: "hector@gmail.com", aficion: 5});
-        aficionesUsuarioStore.add({email: "hector@gmail.com", aficion: 6});
-        aficionesUsuarioStore.add({email: "hector@gmail.com", aficion: 7});
+        aficionesUsuarioStore.add({email: "laura@gmail.com", aficion: 5});
+        aficionesUsuarioStore.add({email: "laura@gmail.com", aficion: 6});
+        aficionesUsuarioStore.add({email: "laura@gmail.com", aficion: 7});
 
-        // Aficiones para Clara
-        aficionesUsuarioStore.add({email: "clara@gmail.com", aficion: 8});
-        aficionesUsuarioStore.add({email: "clara@gmail.com", aficion: 9});
-        aficionesUsuarioStore.add({email: "clara@gmail.com", aficion: 10});
-
-        // Aficiones para Raúl
-        aficionesUsuarioStore.add({email: "raul@gmail.com", aficion: 11});
-        aficionesUsuarioStore.add({email: "raul@gmail.com", aficion: 12});
-        aficionesUsuarioStore.add({email: "raul@gmail.com", aficion: 13});
-
-        // Aficiones para Laura
-        aficionesUsuarioStore.add({email: "laura@gmail.com", aficion: 14});
-        aficionesUsuarioStore.add({email: "laura@gmail.com", aficion: 15});
-        aficionesUsuarioStore.add({email: "laura@gmail.com", aficion: 1});
+       
 
 
         aficionesUsuarioStore.createIndex("email", "email", {unique: false});
-
-
-
-
-
 
 
 
@@ -213,8 +208,6 @@ function abrirBaseDeDatos() {
         usuariosStore.createIndex("genero", "genero", {unique: false});
 
         usuariosStore.createIndex("ciudad", "ciudad", {unique: false});
-
-
 
 
         usuariosStore.add(
@@ -347,12 +340,81 @@ function abrirBaseDeDatos() {
 //********************* CLICK BOTON LOGIN ***************************
 //*******************************************************************
 
-document.getElementById("iniciarSesionBtn").addEventListener("click", function () {
+document.getElementById("botonLogIn").addEventListener("click", iniciarSesion); 
 
-    iniciarSesion();
 
-});
 
+function iniciarSesion() {
+    
+    sessionStorage.clear();
+
+    var email = document.getElementById("email").value;
+    var password = document.getElementById("password").value;
+
+    if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)) {
+        // Abrir la base de datos
+        var abrirBD = indexedDB.open("vitomaitebd", 1);
+
+        abrirBD.onsuccess = function (evento) {
+            var db = evento.target.result;
+
+            // Iniciar una transacción en el almacén "Usuarios"
+            var transaccion = db.transaction(["Usuarios"], "readonly");
+            var usuariosStore = transaccion.objectStore("Usuarios");
+
+            // Usar el índice "email" para buscar al usuario
+            var indiceEmail = usuariosStore.index("email");
+            var cursor = indiceEmail.get(email);
+
+            cursor.onsuccess = function (eventoCursor) {
+                var resultado = eventoCursor.target.result;
+
+                // Verificar si se encontró un usuario con ese email
+                if (resultado) {
+                    // Verificar la contraseña
+                    if (resultado.password === password) {
+                        // Actualizar sessionStorage con la información más reciente del usuario
+                        sessionStorage.setItem("email", resultado.email);
+                        sessionStorage.setItem("nombre", resultado.nombre);
+                        sessionStorage.setItem("edad", resultado.edad);
+                        sessionStorage.setItem("genero", resultado.genero);
+                        sessionStorage.setItem("ciudad", resultado.ciudad);
+
+                        // Verificar si el usuario tiene una foto personalizada
+                        if (resultado.foto && resultado.foto.startsWith("data:image")) {
+                            sessionStorage.setItem("foto", resultado.foto);
+                        } else {
+                            // Si no tiene foto personalizada, cargar 'avatar01'
+                            sessionStorage.setItem("foto", "ruta/a/avatar01.png");
+                        }
+
+                        // Redirigir a la página de inicio después de iniciar sesión
+                        window.location.href = "logeado.html";
+                    } else {
+                        mostrarMensaje("Error: Credenciales incorrectas");
+                    }
+                } else {
+                    mostrarMensaje("Error: Usuario no encontrado");
+                }
+            };
+
+            cursor.onerror = function () {
+                mostrarMensaje("Error al buscar el usuario en IndexedDB.");
+            };
+        };
+
+        abrirBD.onerror = function () {
+            mostrarMensaje("Error al abrir la base de datos.");
+        };
+    } else {
+        mostrarMensaje("Error: El formato del email no es correcto");
+    }
+}
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/*
 function iniciarSesion()
 {
     var email = document.getElementById("email").value;
@@ -361,9 +423,9 @@ function iniciarSesion()
     if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email))
     {
         // Abrir la base de datos
-        var solicitud = indexedDB.open("vitomaitebd", 1);
+        var abrirBD = indexedDB.open("vitomaitebd", 1);
 
-        solicitud.onsuccess = function (evento) {
+        abrirBD.onsuccess = function (evento) {
 
             var db = evento.target.result;
 
@@ -391,8 +453,14 @@ function iniciarSesion()
                         // Almacenar información del usuario en sessionStorage
                         sessionStorage.setItem('email', resultado.value.email);
                         sessionStorage.setItem('nombre', resultado.value.nombre);
+                        sessionStorage.setItem('edad', resultado.value.edad);
+                        sessionStorage.setItem('genero', resultado.value.genero);
+                        sessionStorage.setItem('ciudad', resultado.value.ciudad);
                         // Construir la ruta de la foto usando la carpeta "img" en la raíz
                         sessionStorage.setItem('foto', resultado.value.foto);
+
+
+
                         // info para redirigir a la página de bienvenida y pasar el nombre de usuario como parámetro
 
 
@@ -412,6 +480,11 @@ function iniciarSesion()
         mostrarMensaje("Error: El formato del email no es correcto");
     }
 }
+*/
+
+
+
+
 
 // Función para mostrar mensajes
 function mostrarMensaje(mensaje) {
@@ -442,7 +515,7 @@ document.addEventListener('DOMContentLoaded', function () {
 //********************* CLICK BOTON BUSCAR USUARIOS******************
 //*******************************************************************
 
-document.getElementById("buscarUsuariosBtn").addEventListener("click", buscarUsuarios);
+document.getElementById("botonBuscarUsuarios").addEventListener("click", buscarUsuarios);
 
 function buscarUsuarios()
 {
