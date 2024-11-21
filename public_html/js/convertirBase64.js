@@ -1,4 +1,4 @@
-
+/*
 //******* CONVERTIR A BASE 64 **************************
 function convertirArchivoABase64(file, callback) {
     var reader = new FileReader();
@@ -61,6 +61,6 @@ document.getElementById('foto').addEventListener('change', function (event) {
 });
 
 
-
+*/
 
 

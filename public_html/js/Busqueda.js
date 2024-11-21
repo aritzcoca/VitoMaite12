@@ -1,3 +1,5 @@
+
+
 document.addEventListener('DOMContentLoaded', function () {
     // Mostrar mensaje de bienvenida
     var nombreUsuario = sessionStorage.getItem('nombre');
@@ -29,7 +31,7 @@ document.addEventListener('DOMContentLoaded', function () {
 //*************************** CERRAR SESION ************************************
 //****************************************************************************** 
 
-document.getElementById("cerrarSesionBtn").addEventListener('click', function () {
+document.getElementById("botonCerrarSesion").addEventListener('click', function () {
 // Limpiar la información del usuario de sessionStorage
     sessionStorage.removeItem('email');
     sessionStorage.removeItem('nombre');

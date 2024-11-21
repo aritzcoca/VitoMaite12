@@ -1,7 +1,8 @@
 //****************************************************************************** 
 //******************************** SALUDAR *************************************
 //****************************************************************************** 
-document.addEventListener('DOMContentLoaded', function () {
+
+   document.addEventListener('DOMContentLoaded', function () {
 // Obtener la información del usuario de sessionStorage
     //var emailUsuario = sessionStorage.getItem('email');
     var nombreUsuario = sessionStorage.getItem('nombre');
@@ -18,11 +19,15 @@ document.addEventListener('DOMContentLoaded', function () {
 //*************************** CERRAR SESION ************************************
 //****************************************************************************** 
 
-document.getElementById("cerrarSesionBtn").addEventListener('click', function () {
+document.getElementById("botonCerrarSesion").addEventListener('click', function () {
 // Limpiar la información del usuario de sessionStorage
     sessionStorage.removeItem('email');
     sessionStorage.removeItem('nombre');
     sessionStorage.removeItem('foto');
+    sessionStorage.removeItem('genero');
+    sessionStorage.removeItem('ciudad');
+    sessionStorage.removeItem('edad');
+
     // Redirigir a la página de inicio de sesión
     window.location.href = 'index.html';
 }

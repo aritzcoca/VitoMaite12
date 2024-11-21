@@ -193,23 +193,15 @@ function abrirBaseDeDatos() {
         //por lo tanto dejo los indices en las posibles busquedas / filtros
 
         usuariosStore.createIndex("email", "email", {unique: true});
-
         usuariosStore.createIndex("nombre", "nombre", {unique: false});
-
         usuariosStore.createIndex("password", "password", {unique: false});
-
         usuariosStore.createIndex("foto", "foto", {unique: false});
-
-
-        //este indice para el listado por edad en la busqueda
         usuariosStore.createIndex("edad", "edad", {unique: false});
-
-
         usuariosStore.createIndex("genero", "genero", {unique: false});
-
         usuariosStore.createIndex("ciudad", "ciudad", {unique: false});
 
-
+        console.log("Introduce los usuarios");
+        
         usuariosStore.add(
                 {nombre: "Carlos",
                     email: "carlos@gmail.com",

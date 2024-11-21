@@ -3,38 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Buscar usuario por Aficiones</title>
+    <title>Editar Perfil</title>
     <link rel="stylesheet" type="text/css" href="css/estilos2.css">
     <link rel="icon" type="image/ico" href="img/icono.ico"/>
-    <script src="js/Busqueda.js" defer></script> <!-- Asegura que el JS se carga después del contenido -->
-    <style>
-        body {
-            background-image: url('img/VitoMaiteFondo (Presentación).jpg');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-        }
-        
-    </style>
+    
 </head>
 <body>
     <header>
         <nav>
             <div id="cerrarSesionContainer">  
                 <img id="fotoUsuario" alt="Foto del usuario" src="">
-                <button id="cerrarSesionBtn">Cerrar Sesión</button>
+                <button id="botonCerrarSesion">Cerrar Sesión</button>
+                <button id="volverAlInicioBtn" >Volver al inicio</button>
             </div>
         </nav>
     </header>
 
     <main>
-        <h1> Hola </h1>
+                <div class="botonesEditarPerfil">          
+       
+            <button id="botonModificarPerfil">Modificar perfil</button>
+            <button id="botonGestionarAficiones">Gestionar aficiones</button>
+
+        </div>
+        
+
     </main>
 
     <footer>
         <p>© 2024 VitoMaite. Todos los derechos reservados.</p>
     </footer>
-       <script src="js/EditarPerfil.js" defer></script>
+       <script src="js/EditarPerfil.js" ></script>
     <!--para poder usar SweetAlert-->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 </body>

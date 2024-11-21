@@ -1,3 +1,5 @@
+/////TODO LO DEL INICIO (añadir la foto, boton de cerrar sesion y boton de volver al inicio)
+
 document.addEventListener('DOMContentLoaded', function () {
     // Mostrar mensaje de bienvenida
     
@@ -9,13 +11,6 @@ document.addEventListener('DOMContentLoaded', function () {
         fotoUsuarioElement.src = fotoUsuario;
     }
 });
-
-
-
-
-
-
-
 
 document.getElementById("volverAlInicioBtn").addEventListener('click', function () {
     
@@ -36,3 +31,5 @@ document.getElementById("botonCerrarSesion").addEventListener('click', function 
     window.location.href = 'index.html';
 }
 );
+
+//////////////////////////////////////////////////////////////////////////////////////////////////
