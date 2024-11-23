@@ -21,9 +21,15 @@
 
     <main>
         <div class="map-container">
+            
         <div id="map"></div>
-    </div>
-
+        
+        </div>
+        <div id="slider-container">
+            <label for="radius-slider">Ajustar radio de búsqueda (km):</label>
+            <input type="range" id="radius-slider" min="0.05" max="10" value="1" step="0.05">
+            <span id="radius-value">1</span> km
+        </div>
     </main>
 
     <footer>
@@ -32,5 +38,7 @@
        <script src="js/BusquedaGeolocalizada.js"></script>
     <!--para poder usar SweetAlert-->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAo64rkr6TR-RqlV-pJOnRrp0LcdQOAwVU&callback=initMap" async defer></script>
+
 </body>
 </html>

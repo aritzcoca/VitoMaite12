@@ -44,10 +44,14 @@
 
                     <!-- Edad -->
                     <div class="edad-container">
-                        <label for="edad">Edad:</label>
-                        <select id="edad" name="edad">
-                            <!-- Opciones de edad se generarán aquí -->
-                        </select>
+                        <div>
+                            <label for="edadMin">Edad mínima:</label>
+                            <select id="edadMin"></select>
+                            </div>
+                        <div>
+                            <label for="edadMax">Edad máxima:</label>
+                            <select id="edadMax"></select>
+                        </div>
                     </div>
 
                     <!-- Ciudad -->
@@ -95,6 +99,11 @@
         <script src="js/Busqueda.js"></script>
         <!--para poder user SweetAlert-->
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAo64rkr6TR-RqlV-pJOnRrp0LcdQOAwVU&callback=initMap" async defer></script>
 
     </body>
 </html>
+
+
+
+

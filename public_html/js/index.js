@@ -1,4 +1,3 @@
-//******************************************************************************
 //************************ CARGA DE LA PAGINA **********************************
 //******************************************************************************
 
@@ -210,6 +209,8 @@ function abrirBaseDeDatos() {
                     genero: "H",
                     altura: "180",
                     ciudad: "Bilbao",
+                    lat: "43.270225",
+                    long: "-2.935440",
                     foto: avatar01});
 
         usuariosStore.add(
@@ -220,6 +221,8 @@ function abrirBaseDeDatos() {
                     genero: "M",
                     altura: "170",
                     ciudad: "Donosti",
+                    lat: "43.325705",
+                    long: "-1.973722",
                     foto: avatar02});
 
         usuariosStore.add(
@@ -230,6 +233,8 @@ function abrirBaseDeDatos() {
                     genero: "H",
                     altura: "175",
                     ciudad: "Vitoria",
+                    lat: "42.848290",
+                    long: "-2.672901",
                     foto: ""});
 
         usuariosStore.add(
@@ -240,6 +245,8 @@ function abrirBaseDeDatos() {
                     genero: "M",
                     altura: "162",
                     ciudad: "Bilbao",
+                    lat: "43.262311",
+                    long: "-2.931567",
                     foto: ""});
 
         usuariosStore.add(
@@ -250,6 +257,8 @@ function abrirBaseDeDatos() {
                     genero: "H",
                     altura: "182",
                     ciudad: "Donosti",
+                    lat: "43.302369",
+                    long: "-1.974743",
                     foto: avatar03});
 
         usuariosStore.add(
@@ -260,6 +269,8 @@ function abrirBaseDeDatos() {
                     genero: "M",
                     altura: "168",
                     ciudad: "Vitoria",
+                    lat: "42.837961",
+                    long: "-2.682476",
                     foto: avatar04});
 
         usuariosStore.add(
@@ -270,6 +281,8 @@ function abrirBaseDeDatos() {
                     genero: "H",
                     altura: "177",
                     ciudad: "Bilbao",
+                    lat: "43.256096",
+                    long: "-2.936568",
                     foto: ""});
 
         usuariosStore.add(
@@ -280,6 +293,8 @@ function abrirBaseDeDatos() {
                     genero: "M",
                     altura: "164",
                     ciudad: "Donosti",
+                    lat: "43.315257",
+                    long: "-1.971886",
                     foto: ""});
 
         usuariosStore.add(
@@ -290,6 +305,8 @@ function abrirBaseDeDatos() {
                     genero: "H",
                     altura: "183",
                     ciudad: "Vitoria",
+                    lat: "42.850791",
+                    long: "-2.657895",
                     foto: avatar05});
 
         usuariosStore.add(
@@ -300,6 +317,8 @@ function abrirBaseDeDatos() {
                     genero: "M",
                     altura: "160",
                     ciudad: "Bilbao",
+                    lat: "43.275087",
+                    long: "-2.959291",
                     foto: avatar06});
 
         usuariosStore.add(
@@ -310,6 +329,8 @@ function abrirBaseDeDatos() {
                     genero: "H",
                     altura: "179",
                     ciudad: "Donosti",
+                    lat: "43.306943",
+                    long: "-1.993025",
                     foto: avatar07});
 
         usuariosStore.add(
@@ -320,6 +341,8 @@ function abrirBaseDeDatos() {
                     genero: "M",
                     altura: "166",
                     ciudad: "Vitoria",
+                    lat: "42.860979",
+                    long: "-2.668384",
                     foto: avatar08});
 
     };
