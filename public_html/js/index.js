@@ -181,6 +181,8 @@ function abrirBaseDeDatos() {
         likesStore.add({usuario1: "ana@gmail.com", usuario2: "hector@gmail.com", fecha: "03-11-2024T17:45", like: "1"});
         likesStore.add({usuario1: "hector@gmail.com", usuario2: "clara@gmail.com", fecha: "03-11-2024T17:50", like: "1"});
         likesStore.add({usuario1: "clara@gmail.com", usuario2: "raul@gmail.com", fecha: "03-11-2024T17:55", like: "1"});
+        likesStore.add({usuario1: "laura@gmail.com", usuario2: "carlos@gmail.com", fecha: "03-11-2024T17:55", like: "1"});
+
 
         // Crear almacén de objetos para Usuarios
         var usuariosStore = db.createObjectStore("Usuarios", {keyPath: "id", autoIncrement: true});
