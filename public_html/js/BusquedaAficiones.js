@@ -1,6 +1,6 @@
 
-///////////////////////////////////////////////////BOTONES DEL NAVBAR////////////////////////////////////////////////////////////////////
 
+//Funcionamiento de botones de la barra de navegacion
 document.getElementById("volverAlInicioBtn").addEventListener('click', function () {
     window.location.href = 'logeado.html';
 });
@@ -18,7 +18,7 @@ document.getElementById("botonCerrarSesion").addEventListener('click', function 
     window.location.href = 'index.html';
 });
 
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////7
+
 // Conexión única a IndexedDB
 let dbConnection = null;
 
@@ -43,7 +43,7 @@ function obtenerConexionIndexedDB(callback) {
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 document.addEventListener('DOMContentLoaded', function () {
-    // Mostrar mensaje de bienvenida
+    //Mostrar foto del usuario
     const fotoUsuario = sessionStorage.getItem('foto');
     const fotoUsuarioElement = document.getElementById("fotoUsuario");
 
