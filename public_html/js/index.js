@@ -408,7 +408,7 @@ function iniciarSesion() {
                         }
 
                         // Redirigir a la página de inicio después de iniciar sesión
-                        window.location.href = "logeado.html";
+                        window.location.href = "Logeado.html";
                     } else {
                         mostrarMensaje("Error: Credenciales incorrectas");
                     }
